@@ -39,31 +39,31 @@ ext {
 }
 
 dependencies {
-
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:jacksonVersion
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:jacksonVersion
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:jacksonVersion
-    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
-    compileOnly group: 'org.springframework', name: 'spring-web', version: springWebVersion
-    compileOnly group: 'org.apache.httpcomponents', name: 'httpclient', version: httpClientVersion
-    compileOnly group: 'com.ning', name: 'async-http-client', version:'1.7.19'
-    compileOnly group: 'org.asynchttpclient', name: 'async-http-client', version:'2.5.2'
-    compileOnly group: 'com.squareup.okhttp3', name: 'okhttp', version: okhttpVersion
-
-    testImplementation group: 'org.springframework', name: 'spring-web', version: springWebVersion
-    testImplementation group: 'org.apache.httpcomponents', name: 'httpclient', version: httpClientVersion
-    testImplementation group: 'com.ning', name: 'async-http-client', version:'1.7.19'
-    testImplementation group: 'org.asynchttpclient', name: 'async-http-client', version:'2.5.2'
-    testImplementation group: 'com.squareup.okhttp3', name: 'okhttp', version: okhttpVersion
-
     implementation (
-        "org.apache.httpcomponents:httpmime:${httpClientVersion}"
+            "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}",
+            "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
+            "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}",
+            "org.slf4j:slf4j-api:${slf4jVersion}",
+            "org.apache.httpcomponents:httpmime:${httpClientVersion}"
     )
-    testCompile(
-            [group: 'org.easytesting', name: 'fest-assert', version: '1.4'],
-            [group: 'junit', name: 'junit', version: '4.12'],
-            [group: 'org.mockito', name: 'mockito-all', version: '1.9.5'],
 
+    compileOnly (
+            "org.springframework:spring-web:${springWebVersion}",
+            "org.apache.httpcomponents:httpclient:${httpClientVersion}",
+            "com.ning:async-http-client:1.7.19",
+            "org.asynchttpclient:async-http-client:2.5.2",
+            "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    )
+
+    testImplementation (
+            "org.springframework:spring-web:${springWebVersion}",
+            "org.apache.httpcomponents:httpclient:${httpClientVersion}",
+            "com.ning:async-http-client:1.7.19",
+            "org.asynchttpclient:async-http-client:2.5.2",
+            "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            "org.easytesting:fest-assert:1.4",
+            "junit:junit:4.12",
+            "org.mockito:mockito-all:1.9.5",
             "org.scala-lang:scala-library:${scalaFullVersion}",
             "org.scalatest:scalatest_${scalaBinaryVersion}:3.0.0"
     )
