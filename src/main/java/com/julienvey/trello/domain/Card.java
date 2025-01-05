@@ -114,6 +114,11 @@ public class Card extends TrelloEntity {
         this.idMembers = idMembers;
     }
 
+    //This method ensures that labels are retained when calling UpdateCard()
+    public List<String> getIdLabels() {
+        return labels.stream().map(Label::getId).collect(Collectors.toList());
+    }
+
     public List<Label> getLabels() {
         return labels;
     }
