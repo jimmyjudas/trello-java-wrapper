@@ -22,6 +22,8 @@ public class TList extends TrelloEntity {
         return trelloService.createCard(id, card);
     }
 
+    public List<Card> fetchCards() { return trelloService.getListCards(id); }
+
     /* Accessors */
     public String getId() {
         return id;
