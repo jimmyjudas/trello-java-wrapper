@@ -19,6 +19,22 @@ public class ArgUtils {
         };
     }
 
+    public static Argument[] addToArgsStart(String argName, String argValue, Argument... otherArgs)
+    {
+        Argument[] newArgs = new Argument[otherArgs.length + 1];
+        newArgs[0] = new Argument(argName, argValue);
+        System.arraycopy(otherArgs, 0, newArgs, 1, otherArgs.length);
+        return newArgs;
+    }
+
+    public static Argument[] addToArgsEnd(String argName, String argValue, Argument... otherArgs)
+    {
+        Argument[] newArgs = new Argument[otherArgs.length + 1];
+        System.arraycopy(otherArgs, 0, newArgs, 0, otherArgs.length);
+        newArgs[otherArgs.length] = new Argument(argName, argValue);
+        return newArgs;
+    }
+
     /**
      * Factory method to easily create the {@link Argument} array. Parameters at the odd positions are names, at even
      * positions are values.

@@ -2,6 +2,8 @@ package com.julienvey.trello.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.julienvey.trello.Trello;
+import com.julienvey.trello.impl.domaininternal.CardState;
+import com.julienvey.trello.utils.ArgUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,6 +41,10 @@ public class Board extends TrelloEntity {
 
     public List<Card> fetchCards(Argument... args) {
         return trelloService.getBoardCards(id, args);
+    }
+
+    public List<Card> fetchFilteredCards(CardState cardState, Argument... args) {
+        return trelloService.getBoardCards(id, ArgUtils.addToArgsStart("filter", cardState.getState(), args));
     }
 
     public Card fetchCard(String cardId, Argument... args) {
