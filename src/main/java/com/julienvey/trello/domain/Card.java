@@ -2,6 +2,7 @@ package com.julienvey.trello.domain;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
